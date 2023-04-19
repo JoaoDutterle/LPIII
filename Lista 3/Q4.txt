@@ -1,0 +1,28 @@
+modelo Lampada
+    inicio do modelo
+    dado estadoDaLampada; 
+
+    operação acende() // acende a lâmpada
+    inicio
+        estadoDaLampada = verdadeiro;
+    fim
+
+    operação apaga() // apaga a lâmpada
+    inicio
+        estadoDaLampada = falso;
+    fim
+
+    operação mostraEstado() // mostra o estado atual da lâmpada
+    inicio
+        se (estadoDaLampada == verdadeiro)
+            imprime "A lâmpada está acesa";
+        senao
+            imprime "A lâmpada está apagada";
+    fim
+
+    operação estaLigada() // verifica se a lâmpada está ligada
+    inicio
+        retorna estadoDaLampada; // retorna verdadeiro se está ligada, falso caso contrário
+    fim
+
+fim do modelo

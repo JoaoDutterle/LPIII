@@ -1,0 +1,34 @@
+operação dataÉVálida(umDia, umMês, umAno) // argumentos para esta operação
+início
+    // Lista de meses com número máximo de dias permitidos
+    const mesesCom30Dias = [4, 6, 9, 11];
+    
+    // Verifica se o dia está dentro dos limites aceitáveis
+    se (umDia >= 1) e (umDia <= 31) então
+        // Verifica se o mês está dentro dos limites aceitáveis
+        se (umMês >= 1) e (umMês <= 12) então
+            // Verifica se o dia é válido para fevereiro (mês 2)
+            se (umMês == 2) então
+                // Verifica se o ano é bissexto
+                se ((umAno % 4 == 0) e (umAno % 100 != 0)) ou (umAno % 400 == 0) então
+                    // Se for bissexto, o dia máximo é 29
+                    retorna (umDia <= 29)
+                senão
+                    // Se não for bissexto, o dia máximo é 28
+                    retorna (umDia <= 28)
+                fim
+            // Verifica se o dia é válido para meses com 30 dias
+            senão se (mesesCom30Dias.contém(umMês)) então
+                // Para meses com 30 dias, o dia máximo é 30
+                retorna (umDia <= 30)
+            // Para os demais meses com 31 dias, o dia máximo é 31
+            senão
+                retorna verdadeiro
+            fim
+        senão
+            retorna falso
+        fim
+    senão
+        retorna falso
+    fim
+fim

@@ -1,0 +1,37 @@
+Modelo LampadaAVenda
+	inicio do modelo
+	dado marca; 
+	dado tipo; 
+	dado potencia; 
+	dado preco; 
+
+	operação exibeDetalhes() 
+	inicio
+		imprime "Marca: " + marca;
+		imprime "Tipo: " + tipo;
+		imprime "Potência: " + potencia + " watts";
+		imprime "Preço: R$" + preco;
+	fim
+
+	operação defineMarca(marcaNova) // define a marca da lâmpada
+	inicio
+		marca = marcaNova;
+	fim
+
+	operação defineTipo(tipoNovo) // define o tipo da lâmpada
+	inicio
+		tipo = tipoNovo;
+	fim
+
+	operação definePotencia(potenciaNova) // define a potência da lâmpada
+	inicio
+		potencia = potenciaNova;
+	fim
+
+	operação definePreco(precoNovo) // define o preço da lâmpada
+	inicio
+		preco = precoNovo;
+	fim
+
+fim do modelo
+

@@ -1,0 +1,51 @@
+modelo HoraPrecisa
+inicio
+    dado
+    hora, minuto, segundo, centesimo;
+
+    // Inicializa a hora precisa com os valores passados
+    operação inicializaHoraPrecisa(umaHora, umMinuto, umSegundo, umCentesimo)
+    início
+        hora = umaHora;
+        minuto = umMinuto;
+        segundo = umSegundo;
+        centesimo = umCentesimo;
+    fim
+
+    // Verifica se a hora precisa é válida
+    operação horaPrecisaEValida()
+    início
+        // Verifica se os valores estão dentro do intervalo correto
+        se (hora >= 0) e (hora <= 23) e (minuto >= 0) e (minuto <= 59) e
+           (segundo >= 0) e (segundo <= 59) e (centesimo >= 0) e (centesimo <= 99) então
+            retorna verdadeiro;
+        senão
+            retorna falso;
+        fim se
+    fim
+
+    // Retorna o valor atual dos segundos
+    operação obtemSegundo()
+    início
+        retorna segundo;
+    fim
+
+    // Retorna o valor atual dos centésimos de segundo
+    operação obtemCentesimo()
+    início
+        retorna centesimo;
+    fim
+
+    // Retorna o valor atual da hora (reutilizada do modelo HoraAproximada)
+    operação obtemHora()
+    início
+        retorna hora;
+    fim
+
+    // Retorna o valor atual dos minutos (reutilizada do modelo HoraAproximada)
+    operação obtemMinuto()
+    início
+        retorna minuto;
+    fim
+
+fim do modelo

@@ -1,0 +1,25 @@
+LampadaTresEstados 
+    inicio do modelo
+    dado estadoDaLampada; 
+
+    operação ajustaLuminosidade(valor) // ajusta a luminosidade da lâmpada para um valor específico
+        inicio
+        se (valor < 0)
+            luminosidadeDaLampada = 0; // valor mínimo de luminosidade é 0 (apagada)
+        senao se (valor > 100)
+            luminosidadeDaLampada = 100; // valor máximo de luminosidade é 100 (acesa)
+        senao
+            luminosidadeDaLampada = valor; // valor válido de luminosidade
+        fim
+
+    operação mostraEstado() 
+        inicio
+            se (estadoDaLampada == "acesa")
+                imprime "A lâmpada está acesa";
+            senao se (estadoDaLampada == "apagada")
+                imprime "A lâmpada está apagada";
+            senao se (estadoDaLampada == "meia-luz")
+                imprime "A lâmpada está em meia-luz";
+        fim
+
+fim do modelo

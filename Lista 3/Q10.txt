@@ -1,0 +1,34 @@
+modelo LivroDeLivraria é um Livro // herda do modelo Livro do exercício anterior
+início do modelo
+    dado preço
+    dado quantidadeEmEstoque
+
+    // Inicializa o livro de livraria com os dados fornecidos
+    operação inicializaLivroDeLivraria (t, a, e, aP, i, p, q) 
+    início
+        chamaInicializacaoDoPai(t, a, e, aP, i);
+        preço = p;
+        quantidadeEmEstoque = q;
+    fim
+
+    // Atualiza o preço de venda do livro
+    operação atualizaPreco (novoPreco) 
+    início
+        preço = novoPreco;
+    fim
+
+    // Atualiza a quantidade de exemplares em estoque
+    operação atualizaQuantidadeEmEstoque (novaQuantidade)
+    início
+        quantidadeEmEstoque = novaQuantidade;
+    fim
+
+    // Mostra os dados do livro de livraria, incluindo preço e quantidade em estoque
+    operação mostraDados()
+    início
+        chamaMostraDadosDoPai();
+        imprime "Preço: R$" + preço;
+        imprime "Quantidade em Estoque: " + quantidadeEmEstoque;
+    fim
+
+fim do modelo

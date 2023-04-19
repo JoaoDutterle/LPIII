@@ -1,0 +1,44 @@
+modelo Ponto2D
+    dado x 
+    dado y 
+
+    // Inicializa o ponto com as coordenadas fornecidas
+    operação inicializaPonto(x, y) 
+    início
+        this.x = x;
+        this.y = y;
+    fim
+
+    // Define as coordenadas do ponto
+    operação defineCoordenadas(x, y)
+    início
+        this.x = x;
+        this.y = y;
+    fim
+
+    // Obtém a coordenada x do ponto
+    operação obtemX() -> real
+    início
+        retornar x;
+    fim
+
+    // Obtém a coordenada y do ponto
+    operação obtemY()
+    início
+        retornar y;
+    fim
+
+    // Move o ponto para uma nova posição (x, y)
+    operação movePara(x, y)
+    início
+        this.x = x; 
+        this.y = y; 
+    fim
+
+    // Mostra as coordenadas do ponto
+    operação mostraCoordenadas()
+    início
+        imprime "Coordenadas do ponto: (" + x + ", " + y + ")";
+    fim
+
+fim do modelo

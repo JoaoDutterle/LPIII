@@ -1,0 +1,15 @@
+operação abreConta(nome, depósito, especial)
+início
+    // Usa os argumentos passados para inicializar os dados do modelo
+    nomeDoCorrentista = nome;
+    se (depósito < 0) então
+        saldo = 0.00; // Se o depósito for negativo, define o saldo como 0.00
+    senão
+        saldo = depósito;
+
+    contaÉEspecial = especial;
+
+    se (contaÉEspecial e saldo < 0)
+        imprime "Alerta: Saldo negativo em conta especial!";
+        
+fim

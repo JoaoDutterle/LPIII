@@ -1,0 +1,29 @@
+LampadaTresEstados 
+inicio do modelo
+dado estadoDaLampada; 
+
+operação acende() 
+    inicio
+        estadoDaLampada = "acesa";
+    fim
+
+operação apaga() 
+    inicio
+        estadoDaLampada = "apagada";
+    fim
+
+operação meiaLuz() 
+    inicio
+        estadoDaLampada = "meia-luz";
+    fim
+
+operação mostraEstado() 
+    inicio
+        se (estadoDaLampada == "acesa")
+            imprime "A lâmpada está acesa";
+        senao se (estadoDaLampada == "apagada")
+            imprime "A lâmpada está apagada";
+        senao se (estadoDaLampada == "meia-luz")
+            imprime "A lâmpada está em meia-luz";
+    fim
+fim do modelo

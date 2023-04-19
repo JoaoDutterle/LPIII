@@ -1,0 +1,50 @@
+modelo LivroDeBiblioteca é um LivroDeLivraria // herda do modelo LivroDeLivraria do exercício anterior
+início do modelo
+    dado estáEmprestado // indica se o livro está emprestado ou não
+    dado nomeDoLeitor
+
+    // Inicializa o livro de biblioteca com os dados fornecidos
+    operação inicializaLivroDeBiblioteca (t, a, e, aP, i, p, q) 
+    início
+        chamaInicializacaoDoPai(t, a, e, aP, i, p, q); //título, autor, editora, anoDePublicacao, isbn, preço e quantidadeEmEstoque
+        estáEmprestado = falso; // inicia como não emprestado
+        nomeDoLeitor = "";
+    fim
+
+    // Marca o livro como emprestado a um leitor
+    operação emprestaLivro (nomeLeitor)
+    início
+        se (estáEmprestado) 
+        então imprime "Livro já está emprestado.";
+        senão
+            estáEmprestado = verdadeiro;
+            nomeDoLeitor = nomeLeitor;
+        fim
+    fim
+
+    // Marca o livro como devolvido pelo leitor
+    operação devolveLivro()
+    início
+        se (estáEmprestado)
+        então
+            estáEmprestado = falso;
+            nomeDoLeitor = "";
+        fim
+    fim
+
+    // Mostra os dados do livro de biblioteca, incluindo se está emprestado e nome do leitor
+    operação mostraDados()
+    início
+        chamaMostraDadosDoPai();
+        se (estáEmprestado)
+        então imprime "Está emprestado a: " + nomeDoLeitor;
+        senão imprime "Não está emprestado.";
+    fim
+
+fim do modelo
+
+Foram adicionados os dados específicos de um livro de biblioteca, 
+como o status de empréstimo (estáEmprestado) e o nome do leitor que emprestou o livro (nomeDoLeitor). 
+Foram adicionadas também as operações emprestaLivro e devolveLivro para marcar o livro como emprestado e devolvido, respectivamente.
+A operação mostraDados foi estendida para incluir a impressão do status de empréstimo e nome do leitor juntamente com os dados do 
+livro de livraria do modelo anterior

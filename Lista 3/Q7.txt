@@ -1,0 +1,44 @@
+modelo HoraAproximada
+inicio
+    dado
+        hora, minuto: inteiros;
+    fim do dado
+
+    
+    operação inicializaHoraAproximada(umaHora, umMinuto)
+    início
+        // Verifica se os valores de hora e minuto são válidos
+        se validaHoraAproximada(umaHora, umMinuto) então
+            hora = umaHora;
+            minuto = umMinuto;
+        fim se
+    fim
+
+    // Exibe a hora aproximada no formato de hora:minuto
+    operação mostraHoraAproximada()
+    início
+        imprime "Hora aproximada: " + hora + ":" + minuto;
+    fim
+
+    // Verifica se os valores de hora e minuto são válidos
+    operação validaHoraAproximada(umaHora, umMinuto)
+    início
+        se (umaHora >= 0) e (umaHora <= 23) e (umMinuto >= 0) e (umMinuto <= 59) então
+            retorna verdadeiro;
+        senão
+            retorna falso;
+        fim se
+    fim
+
+    // Retorna o valor atual da hora
+    operação obtemHora()
+    início
+        retorna hora;
+    fim
+
+    // Retorna o valor atual dos minutos
+    operação obtemMinuto()
+    início
+        retorna minuto;
+    fim
+fim do modelo

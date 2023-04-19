@@ -1,0 +1,95 @@
+início do modelo Data
+
+dado dia, mês, ano;
+
+// Inicializa simultaneamente todos os dados do modelo
+operação inicializaData(umDia, umMês, umAno) // argumentos para esta operação
+início
+    // Somente muda os valores do dia, mês e ano se a data passada for válida
+    se dataÉVálida(umDia, umMês, umAno) então // Repassa os argumentos para a operação
+        início
+            dia = umDia;
+            mês = umMês;
+            ano = umAno;
+        fim
+    // Se a data passada não for válida, considera os valores sendo zero
+    senão
+        início
+            dia = 0;
+            mês = 0;
+            ano = 0;
+        fim
+fim
+
+// Verifica se a data é válida
+operação dataÉVálida(umDia, umMês, umAno) // argumentos para esta operação
+início
+    // Lista de meses com número máximo de dias permitidos
+    const mesesCom30Dias = [4, 6, 9, 11];
+
+    // Verifica se o dia está dentro dos limites aceitáveis
+    se (umDia >= 1) e (umDia <= 31) então
+        // Verifica se o mês está dentro dos limites aceitáveis
+        se (umMês >= 1) e (umMês <= 12) então
+            // Verifica se o dia é válido para fevereiro (mês 2)
+            se (umMês == 2) então
+                // Verifica se o ano é bissexto
+                se ((umAno % 4 == 0) e (umAno % 100 != 0)) ou (umAno % 400 == 0) então
+                    // Se for bissexto, o dia máximo é 29
+                    retorna (umDia <= 29)
+                senão
+                    // Se não for bissexto, o dia máximo é 28
+                    retorna (umDia <= 28)
+                fim
+            // Verifica se o dia é válido para meses com 30 dias
+            senão se (mesesCom30Dias.contém(umMês)) então
+                // Para meses com 30 dias, o dia máximo é 30
+                retorna (umDia <= 30)
+            // Para os demais meses com 31 dias, o dia máximo é 31
+            senão
+                retorna verdadeiro
+            fim
+        senão
+            retorna falso
+        fim
+    senão
+        retorna falso
+    fim
+fim
+
+// Retorna o dia da semana para uma data válida
+operação diaDaSemana()
+início
+    // Array com os nomes dos dias da semana
+    const nomesDiasDaSemana = ["Domingo", "Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sábado"];
+    
+    // Array com os índices dos meses para o cálculo do Zeller
+    const mesesZeller = [0, 11, 12, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    // Verifica se a data é válida
+    se dataÉVálida(dia, mês, ano) então
+        início
+            // Converte janeiro e fevereiro para os últimos meses do ano anterior
+            se (mês == 1) ou (mês == 2) então
+                início
+                    mês = mesesZeller[mês];
+                    ano = ano - 1;
+                fim
+            fim
+
+            // Cálculo do algoritmo de Zeller
+            inteiro a = ano % 100;
+            inteiro b = ano / 100;
+            inteiro f = dia + ((13 * (mes + 1)) / 5) + a + (a / 4) + (b / 4) - 2 * b;
+            inteiro indiceDiaDaSemana = f % 7;
+
+            // Ajusta o índice para o array de nomes dos dias da semana
+            se (indiceDiaDaSemana < 0) então
+                indiceDiaDaSemana = indiceDiaDaSemana + 7;
+
+            // Retorna o nome do dia da semana correspondente
+            retorna nomesDiasDaSemana[indiceDiaDaSemana];
+        fim
+    senão
+        retorna "Data inválida";
+fim
+

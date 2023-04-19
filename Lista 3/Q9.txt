@@ -1,0 +1,29 @@
+modelo Livro
+início do modelo
+    dado título 
+    dado autor 
+    dado editora
+    dado anoDePublicacao 
+    dado isbn // ISBN (International Standard Book Number) do livro
+
+    // Inicializa o livro com os dados fornecidos
+    operação inicializaLivro (t, a, e, aP, i) 
+    início
+        título = t;
+        autor = a;
+        editora = e;
+        anoDePublicacao = aP;
+        isbn = i;
+    fim
+
+    // Mostra os dados do livro
+    operação mostraDados()
+    início
+        imprime "Título: " + título;
+        imprime "Autor: " + autor;
+        imprime "Editora: " + editora;
+        imprime "Ano de Publicação: " + anoDePublicacao;
+        imprime "ISBN: " + isbn;
+    fim
+
+fim do modelo
